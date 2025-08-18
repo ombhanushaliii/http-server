@@ -16,7 +16,7 @@
 
 
 #define PORT 8080
-// binding == giving a socket an address, ip add & port no. == app.listen(PORT);
+// binding == giving a socket an address, ip add & port no.
 
 int main() {
 
@@ -57,7 +57,7 @@ int main() {
         return 1;
     }
 
-    //listen(server, backlog{max connections in queue}) SOMAXCONN is provided by winsock letting the OS decided upon the number
+    //listen(server, backlog{max connections in queue}) SOMAXCONN is provided by winsock letting the OS decide upon the number
     if(listen(server, SOMAXCONN) == SOCKET_ERROR) {
         std::cerr << "listen failed: " << WSAGetLastError() << "\n";
         closesocket(server);
@@ -127,7 +127,7 @@ int main() {
                     "\r\n"
                     "heyo!";
 
-                send(client, response.c_str(), response.size(), 0);
+                send(client, response.c_str(), response.size(), 0); //c_str is used to conv string to an arr of chars in the string
             }
         }
         closesocket(client);
